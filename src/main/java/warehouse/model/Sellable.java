@@ -6,6 +6,6 @@ public interface Sellable {
     String getId();
     BigDecimal getPrice();
     String getName();
-    String getCategory();
+    Category getCategory();
     int getQuantity();
 }

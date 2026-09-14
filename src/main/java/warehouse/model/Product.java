@@ -7,7 +7,7 @@ public final class Product implements Sellable{
 
     private final String id;
     private final String name;
-    private final String category;
+    private final Category category;
     private final BigDecimal price;
     private final int quantity;
     private final LocalDate registrationDate;
@@ -23,7 +23,7 @@ public final class Product implements Sellable{
 
     private Product(String id,
                    String name,
-                   String category,
+                   Category category,
                    BigDecimal price,
                    int quantity,
                    LocalDate registrationDate) {
@@ -47,7 +47,7 @@ public final class Product implements Sellable{
     }
 
     @Override
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
@@ -70,7 +70,7 @@ public final class Product implements Sellable{
 
         private String id;
         private String name;
-        private String category;
+        private Category category;
         private BigDecimal price;
         private int quantity;
         private LocalDate registrationDate;
@@ -85,7 +85,7 @@ public final class Product implements Sellable{
             return this;
         }
 
-        public Builder category(String category) {
+        public Builder category(Category category) {
             this.category = category;
             return this;
         }
