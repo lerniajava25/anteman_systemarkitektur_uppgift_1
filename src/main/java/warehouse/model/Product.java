@@ -3,7 +3,7 @@ package warehouse.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Product implements Sellable{
+public final class Product implements Sellable{
 
     private final String id;
     private final String name;
