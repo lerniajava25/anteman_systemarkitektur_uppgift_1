@@ -1,6 +1,7 @@
 package warehouse.model;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class DiscountDecorator extends ProductDecorator {
     private final Sellable discountedProduct;
@@ -16,6 +17,6 @@ public class DiscountDecorator extends ProductDecorator {
     public BigDecimal getPrice() {
         BigDecimal price = discountedProduct.getPrice();
         BigDecimal discountDecimal = BigDecimal.valueOf(1 - discount/100);
-        return price.multiply(discountDecimal);
+        return price.multiply(discountDecimal).setScale(2, RoundingMode.HALF_UP);
     }
 }
