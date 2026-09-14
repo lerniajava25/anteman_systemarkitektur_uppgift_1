@@ -14,8 +14,8 @@ public class DiscountDecorator extends ProductDecorator {
 
     @Override
     public BigDecimal getPrice() {
-        double price = discountedProduct.getPrice().doubleValue();
-        double discountDecimal = 1 - discount/100;
-        return BigDecimal.valueOf(price * discountDecimal);
+        BigDecimal price = discountedProduct.getPrice();
+        BigDecimal discountDecimal = BigDecimal.valueOf(1 - discount/100);
+        return price.multiply(discountDecimal);
     }
 }
