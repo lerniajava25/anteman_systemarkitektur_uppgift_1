@@ -1,5 +1,7 @@
 package warehouse.model;
 
+import model.Category;
+import model.Product;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +22,7 @@ class ProductTest {
         product = new Product.Builder()
                 .id("1")
                 .name("Product 1")
-                .category("Category 1")
+                .category(Category.OTHER)
                 .price(BigDecimal.valueOf(10.00))
                 .quantity(10)
                 .registrationDate(LocalDate.now())
@@ -50,7 +52,7 @@ class ProductTest {
     @DisplayName("Get Category")
     void getCategory() {
         assertNotNull(product.getCategory());
-        assertEquals("Category 1", product.getCategory());
+        assertEquals(Category.OTHER, product.getCategory());
     }
 
     @Test
