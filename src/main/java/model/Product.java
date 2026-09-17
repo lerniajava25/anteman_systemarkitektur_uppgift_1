@@ -111,7 +111,11 @@ public final class Product implements Sellable{
         }
 
         public Builder registrationDate(LocalDate registrationDate) {
-            this.registrationDate = registrationDate;
+            if (registrationDate.isBefore(LocalDate.of(2000,1,1))) {
+                this.registrationDate = LocalDate.now();
+            } else {
+                this.registrationDate = registrationDate;
+            }
             return this;
         }
         public Product build() {
