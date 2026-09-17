@@ -1,4 +1,4 @@
-package warehouse.model;
+package model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -75,6 +75,15 @@ public final class Product implements Sellable{
         private int quantity;
         private LocalDate registrationDate;
 
+        public Builder() {
+            id = "";
+            name = "Name not set";
+            category = Category.OTHER;
+            price = BigDecimal.valueOf(0);
+            quantity = 0;
+            registrationDate = LocalDate.of(1970,1,1);
+        }
+
         public Builder id(String id) {
             this.id = id;
             return this;
@@ -91,7 +100,7 @@ public final class Product implements Sellable{
         }
 
         public Builder price(BigDecimal price) {
-            this.price = price;
+            this.price = price.setScale(2);
             return this;
         }
 
