@@ -4,11 +4,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductTest {
+
+    private final LocalDate currentDate = LocalDate.now();
 
     Product laptop = new Product.Builder()
             .id("1")
@@ -16,7 +19,7 @@ class ProductTest {
             .category(Category.COMPUTERS)
             .price(BigDecimal.valueOf(1000))
             .quantity(12)
-            .registrationDate(LocalDate.now())
+            .registrationDate(currentDate)
             .build();
 
     @Test
@@ -40,7 +43,7 @@ class ProductTest {
     @Test
     @DisplayName("should return price of product")
     void getPrice() {
-        assertEquals(BigDecimal.valueOf(1000).setScale(2), laptop.getPrice());
+        assertEquals(BigDecimal.valueOf(1000).setScale(2, RoundingMode.HALF_UP), laptop.getPrice());
     }
 
     @Test
@@ -52,6 +55,6 @@ class ProductTest {
     @Test
     @DisplayName("should return registration date of product")
     void getRegistrationDate() {
-        assertEquals(LocalDate.now(), laptop.getRegistrationDate());
+        assertEquals(currentDate, laptop.getRegistrationDate());
     }
 }
