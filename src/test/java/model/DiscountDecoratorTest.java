@@ -18,7 +18,7 @@ class DiscountDecoratorTest {
             .registrationDate(LocalDate.now())
             .build();
 
-    DiscountDecorator discountedLaptop = new DiscountDecorator(laptop, 20);
+    Sellable discountedLaptop = new DiscountDecorator(laptop, 20);
 
     @Test
     @DisplayName("Normal price should be returned from the base product")
